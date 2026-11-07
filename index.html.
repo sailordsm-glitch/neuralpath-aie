@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NeuralPath AI | Master Artificial Intelligence</title>
+
+    <meta name="description"
+          content="Learn AI tools, programming, automation and machine learning with NeuralPath AI.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #080b16;
+            --surface: #111729;
+            --primary: #7c5cff;
+            --blue: #4c9aff;
+            --text: #f5f7ff;
+            --muted: #a4adc4;
+            --border: rgba(255,255,255,0.09);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-button {
+            background: var(--primary);
+            padding: 10px 18px;
+            border-radius: 8px;
+            color: white !important;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            padding: 100px 0 90px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    ellipse at top,
+                    rgba(124,92,255,0.18),
+                    transparent 65%
+                );
+        }
+
+        .hero-label {
+            display: inline-block;
+            border: 1px solid var(--border);
+            background: rgba(124,92,255,0.1);
+            color: #b6a5ff;
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 72px);
+            line-height: 1.15;
+            max-width: 850px;
+            margin: 0 auto 25px;
+            letter-spacing: -2px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #a58aff,
+                #58b5ff
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto 35px;
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 9px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #6945f5;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .button-secondary:hover {
+            background: var(--surface);
+        }
+
+        /* STATS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 35px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 27px;
+        }
+
+        .stat p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* LEARNING PATHS */
+
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .path-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.25s;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .path-icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .path-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .path-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* COURSES */
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .course-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.25s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+        }
+
+        .course-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 65px;
+        }
+
+        .course-image.purple {
+            background: linear-gradient(135deg, #30205d, #171b39);
+        }
+
+        .course-image.blue {
+            background: linear-gradient(135deg, #123f69, #171b39);
+        }
+
+        .course-image.pink {
+            background: linear-gradient(135deg, #5a204d, #171b39);
+        }
+
+        .course-content {
+            padding: 23px;
+        }
+
+        .course-tag {
+            color: #b6a5ff;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .course-content h3 {
+            margin: 10px 0;
+        }
+
+        .course-content p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .course-price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .course-footer a {
+            color: #a58aff;
+            font-size: 14px;
+        }
+
+        /* CERTIFICATES */
+
+        .certificate-section {
+            background: linear-gradient(
+                135deg,
+                rgba(124,92,255,0.12),
+                rgba(76,154,255,0.06)
+            );
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .certificate-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .certificate-content h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .certificate-content p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .certificate-preview {
+            background: #f8f8ff;
+            color: #18203b;
+            padding: 35px;
+            border-radius: 12px;
+            text-align: center;
+            border: 5px solid #d4c9ff;
+        }
+
+        .certificate-preview h3 {
+            color: #6b4bde;
+            font-size: 27px;
+            margin: 15px 0;
+        }
+
+        .certificate-preview p {
+            color: #535b73;
+            font-size: 14px;
+        }
+
+        .certificate-line {
+            width: 70%;
+            height: 1px;
+            background: #b7b9cc;
+            margin: 20px auto;
+        }
+
+        /* PRICING */
+
+        .pricing-card {
+            max-width: 500px;
+            margin: auto;
+            padding: 35px;
+            background: var(--surface);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .pricing-card h3 {
+            font-size: 25px;
+        }
+
+        .pricing-card p {
+            color: var(--muted);
+            margin: 15px 0 25px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 35px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+
+        @media (max-width: 900px) {
+            .paths-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .certificate-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-content {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .stats {
+                gap: 10px;
+            }
+
+            .stat h3 {
+                font-size: 21px;
+            }
+
+            .stat p {
+                font-size: 12px;
+            }
+
+            .paths-grid,
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .certificate-content h2 {
+                font-size: 30px;
+            }
+
+            .certificate-preview {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="container nav-content">
+
+            <a href="#" class="logo">
+                NeuralPath<span> AI</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#paths">Learning Paths</a>
+                <a href="#courses">Courses</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#" class="nav-button">Get Started</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <header class="hero">
+        <div class="container">
+
+            <span class="hero-label">
+                The Future of Learning Starts Here
+            </span>
+
+            <h1>
+                Master AI.<br>
+                <span class="gradient-text">
+                    Build Your Future.
+                </span>
+            </h1>
+
+            <p>
+                Learn artificial intelligence, master powerful AI tools,
+                build intelligent applications and develop skills that
+                matter in the modern world.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#courses" class="button button-primary">
+                    Explore Courses →
+                </a>
+
+                <a href="#paths" class="button button-secondary">
+                    Discover Learning Paths
+                </a>
+
+            </div>
+
+        </div>
+    </header>
+
+    <!-- STATS -->
+
+    <div class="container">
+        <div class="stats">
+
+            <div class="stat">
+                <h3>Beginner Friendly</h3>
+                <p>Start without experience</p>
+            </div>
+
+            <div class="stat">
+                <h3>Practical Skills</h3>
+                <p>Learn by building</p>
+            </div>
+
+            <div class="stat">
+                <h3>Certificates</h3>
+                <p>Showcase your achievements</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- LEARNING PATHS -->
+
+    <section id="paths">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>Choose Your Learning Path</h2>
+                <p>
+                    Find the right starting point for your AI journey.
+                </p>
+            </div>
+
+            <div class="paths-grid">
+
+                <div class="path-card">
+                    <div class="path-icon">🤖</div>
+                    <h3>AI Tools</h3>
+                    <p>
+                        Master ChatGPT, AI productivity tools
+                        and prompt engineering.
+                    </p>
+                </div>
+
+                <div class="path-card">
+                    <div class="path-icon">💻</div>
+                    <h3>AI Programming</h3>
+                    <p>
+                        Learn Python and build applications
+                        powered by artificial intelligence.
+                    </p>
+                </div>
+
+                <div class="path-card">
+                    <div class="path-icon">⚡</div>
+                    <h3>AI Automation</h3>
+                    <p>
+                        Automate repetitive tasks and create
+                        intelligent workflows.
+                    </p>
+                </div>
+
+                <div class="path-card">
+                    <div class="path-icon">🧠</div>
+                    <h3>Machine Learning</h3>
+                    <p>
+                        Explore data, algorithms and the
+                        foundations of intelligent systems.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURED COURSES -->
+
+    <section id="courses">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>Featured Courses</h2>
+                <p>
+                    Practical courses designed to help you
+                    build real-world AI skills.
+                </p>
+            </div>
+
+            <div class="courses-grid">
+
+                <div class="course-card">
+
+                    <div class="course-image purple">
+                        🤖
+                    </div>
+
+                    <div class="course-content">
+
+                        <span class="course-tag">
+                            AI Productivity
+                        </span>
+
+                        <h3>AI at Work</h3>
+
+                        <p>
+                            Use AI to improve productivity,
+                            research, writing and everyday work.
+                        </p>
+
+                        <div class="course-footer">
+                            <span class="course-price">$29</span>
+                            <a href="#">View Course →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="course-card">
+
+                    <div class="course-image blue">
+                        🐍
+                    </div>
+
+                    <div class="course-content">
+
+                        <span class="course-tag">
+                            Programming
+                        </span>
+
+                        <h3>Python for AI Beginners</h3>
+
+                        <p>
+                            Start programming from scratch
+                            and prepare to build AI applications.
+                        </p>
+
+                        <div class="course-footer">
+                            <span class="course-price">$39</span>
+                            <a href="#">View Course →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="course-card">
+
+                    <div class="course-image pink">
+                        ⚡
+                    </div>
+
+                    <div class="course-content">
+
+                        <span class="course-tag">
+                            Automation
+                        </span>
+
+                        <h3>AI Automation Essentials</h3>
+
+                        <p>
+                            Discover how to connect AI tools
+                            and automate everyday workflows.
+                        </p>
+
+                        <div class="course-footer">
+                            <span class="course-price">$49</span>
+                            <a href="#">View Course →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+
+    <section id="certificates" class="certificate-section">
+        <div class="container">
+
+            <div class="certificate-content">
+
+                <div>
+
+                    <h2>
+                        Learn. Complete.<br>
+                        <span class="gradient-text">
+                            Get Certified.
+                        </span>
+                    </h2>
+
+                    <p>
+                        Complete your course and earn a digital
+                        certificate from NeuralPath AI. Each certificate
+                        will include a unique ID and a verification link
+                        that employers can use to confirm its authenticity.
+                    </p>
+
+                    <a href="#courses" class="button button-primary">
+                        Start Learning →
+                    </a>
+
+                </div>
+
+                <div class="certificate-preview">
+
+                    <div>✦ NEURALPATH AI ✦</div>
+
+                    <h3>Certificate of Completion</h3>
+
+                    <p>This certificate is presented to</p>
+
+                    <h2>Your Name</h2>
+
+                    <p>
+                        For successfully completing the course
+                    </p>
+
+                    <div class="certificate-line"></div>
+
+                    <p>Course: AI at Work</p>
+                    <p>Certificate ID: NP-XXXXXX</p>
+                    <p>Completion Date: —</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRICING -->
+
+    <section id="pricing">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>Start Your AI Journey</h2>
+                <p>
+                    Learn at your own pace with flexible course options.
+                </p>
+            </div>
+
+            <div class="pricing-card">
+
+                <h3>Learn Without Limits</h3>
+
+                <p>
+                    Explore free resources or purchase practical
+                    courses designed for your goals.
+                </p>
+
+                <ul>
+                    <li>✓ Beginner-friendly lessons</li>
+                    <li>✓ Practical projects</li>
+                    <li>✓ Course progress tracking</li>
+                    <li>✓ Completion certificates</li>
+                    <li>✓ Secure online payments</li>
+                </ul>
+
+                <a href="#courses" class="button button-primary">
+                    Explore Courses
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="container">
+
+            <a href="#" class="logo">
+                NeuralPath<span> AI</span>
+            </a>
+
+            <p>
+                Empowering the next generation with AI skills.
+            </p>
+
+            <p style="margin-top: 15px;">
+                © 2026 NeuralPath AI. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+</html>
